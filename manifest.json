@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Snippet Keeper",
+  "version": "1.0.0",
+  "description": "Save selected text together with the page URL and the date and time you saved it.",
+  "permissions": ["contextMenus", "storage", "activeTab", "scripting"],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "action": {
+    "default_title": "Snippets",
+    "default_popup": "popup.html"
+  },
+  "commands": {
+    "save-selection": {
+      "suggested_key": { "default": "Ctrl+Shift+L" },
+      "description": "Save the selected text as a snippet"
+    }
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "snippet-keeper@example.com",
+      "strict_min_version": "128.0",
+      "data_collection_permissions": { "required": ["none"] }
+    }
+  }
+}

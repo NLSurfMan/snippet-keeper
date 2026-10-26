@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Snippets</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <h1>Snippets <span id="count"></span></h1>
+    <button id="open-tab" class="quiet" title="Open in a tab">Open in tab</button>
+  </header>
+
+  <input id="search" type="search" placeholder="Search text, title or URL" aria-label="Search snippets">
+
+  <ul id="list"></ul>
+  <p id="empty" hidden>
+    Select text on any page, then right-click and choose <strong>Save snippet</strong>,
+    or press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd>.
+  </p>
+
+  <footer>
+    <button id="export-md">Export Markdown</button>
+    <button id="export-json">Export JSON</button>
+    <button id="clear" class="danger">Delete all</button>
+  </footer>
+
+  <template id="item">
+    <li>
+      <blockquote class="text"></blockquote>
+      <div class="meta">
+        <a class="source" target="_blank" rel="noopener noreferrer"></a>
+        <time></time>
+      </div>
+      <div class="actions">
+        <button class="copy quiet">Copy</button>
+        <button class="delete quiet">Delete</button>
+      </div>
+    </li>
+  </template>
+
+  <script src="popup.js"></script>
+</body>
+</html>

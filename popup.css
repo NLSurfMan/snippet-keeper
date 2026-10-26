@@ -1,0 +1,76 @@
+:root {
+  --paper: #fbfbf8;
+  --ink: #1d1d1b;
+  --muted: #6b6b66;
+  --line: #e2e1db;
+  --mark: #f2d94e;
+  --link: #1f5fa8;
+  --danger: #b3261e;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #1f1f1d;
+    --ink: #ecebe6;
+    --muted: #a3a29b;
+    --line: #3a3936;
+    --mark: #c9a92a;
+    --link: #8ab8f0;
+    --danger: #f08a82;
+    color-scheme: dark;
+  }
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  width: 420px;
+  max-width: 100%;
+  font: 14px/1.45 system-ui, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+}
+body.tab { width: auto; max-width: 760px; margin: 0 auto; padding: 1rem; }
+
+header, footer { display: flex; align-items: center; gap: .5rem; padding: .6rem .8rem; }
+header { justify-content: space-between; border-bottom: 1px solid var(--line); }
+footer { border-top: 1px solid var(--line); flex-wrap: wrap; }
+h1 { font-size: 1rem; margin: 0; }
+#count { color: var(--muted); font-weight: normal; }
+
+#search {
+  display: block; width: calc(100% - 1.6rem); margin: .6rem .8rem;
+  padding: .4rem .6rem; font: inherit; color: inherit;
+  background: transparent; border: 1px solid var(--line); border-radius: 4px;
+}
+
+#list { list-style: none; margin: 0; padding: 0 .8rem; max-height: 420px; overflow-y: auto; }
+body.tab #list { max-height: none; }
+#list li { padding: .7rem 0; border-bottom: 1px solid var(--line); }
+#list li:last-child { border-bottom: 0; }
+
+.text {
+  margin: 0 0 .35rem; padding-left: .6rem;
+  border-left: 4px solid var(--mark);
+  white-space: pre-wrap; overflow-wrap: anywhere;
+  max-height: 9.5em; overflow: hidden;
+}
+.text.expanded { max-height: none; }
+
+.meta { display: flex; justify-content: space-between; gap: .75rem; font-size: 12px; color: var(--muted); }
+.source { color: var(--link); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+time { flex-shrink: 0; }
+
+.actions { display: flex; gap: .25rem; margin-top: .25rem; }
+
+button {
+  font: inherit; font-size: 12px; color: inherit; cursor: pointer;
+  padding: .3rem .6rem; border: 1px solid var(--line); border-radius: 4px; background: transparent;
+}
+button.quiet { border-color: transparent; color: var(--muted); padding: .2rem .4rem; }
+button:hover { border-color: var(--muted); }
+button.danger { color: var(--danger); margin-left: auto; }
+button:focus-visible, #search:focus-visible, a:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+
+#empty { padding: 1rem .8rem; color: var(--muted); }
+kbd { font: inherit; font-size: 12px; padding: 0 .3em; border: 1px solid var(--line); border-radius: 3px; }
